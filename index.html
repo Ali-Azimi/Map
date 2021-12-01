@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+
+      <!-- sample data -->
+      <!-- <script src="./data.js"></script> -->
+
+
+      <meta charset="utf-8">
+      <title>نمایندگی ها</title>
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      <link href="./assets/styles/mapbox.css" rel="stylesheet">
+      <script src="./assets/scripts/interact.js" defer></script>
+      <script src="./assets/scripts/mapbox.js"></script>
+      <link rel="stylesheet" href="./assets/styles/app.css">
+      <script src="./assets/scripts/app.js" defer></script>
+      <!-- fonts -->
+      <link rel="stylesheet" href="./assets/styles/fonts/style.css">
+
+      <!-- fontawesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous" />
+</head>
+
+<body>
+
+      <section id="all">
+
+            <div class='cloader show' id="loader">
+                  <div class="loading">
+                      <div class="lo">
+                          <img class="pre" src="./assets/images/dca-logo.jpg" alt="فروشگاه ابزار" />
+                      </div>
+                  </div>
+              </div>
+
+            <div id="footer">
+                  <div class="right">
+                        <div class="rep-counts">با <span class="value">150</span> نمایندگی در کشور</div>
+                        <h2>نمایندگان خدمات دی‌سی‌ای</h2>
+                  </div>
+                  <div class="mile" onclick="topmenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                              fill="#000000">
+                              <path d="M0 0h24v24H0z" fill="none" />
+                              <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+                        </svg>
+                  </div>
+            </div>
+            <div id="data">
+                  <div id="map-icon" onclick="showMap(event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                              fill="#000000">
+                              <path d="M0 0h24v24H0z" fill="none" />
+                              <path
+                                    d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+                        </svg>
+                        نقشه
+                  </div>
+
+                  <div class="container">
+                        <div class="title">
+                              <div class="rep-counts">با <span class="value">150</span> نمایندگی در کشور</div>
+                              <h2>نمایندگان خدمات دی‌سی‌ای</h2>
+                        </div>
+
+                        <div class="filters" id="filterBtns">
+                              <span class="filter-item" onclick="handleAllCity(event)">همه استان‌ها</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان تهران')">تهران</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان اصفهان')">اصفهان</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان فارس')">فارس</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان خراسان رضوی')">خراسان رضوی</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان قزوین')">قزوین</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان کرمانشاه')">کرمانشاه</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان اردبیل')">اردبیل</span>
+                              <span class="filter-item" onclick="handleSelectCity(event, 'استان آذربایجان شرقی')">آذربایجان شرقی</span>
+                              <span class="filter-item others">سایر استان‌ها - <span class="value">120</span></span>
+                        </div>
+                        <div class="current">
+                              <span class="title">همه استان‌ها </span>
+                              -
+                              <span class="values"><span class="value">100</span> نمایندگی</span>
+                        </div>
+                        <div class="reps" id="reps">
+                              <!-- <div class="rep">
+                                    <div class="rep__code">
+                                          نمایندگی کد 123
+                                    </div>
+                                    <div class="rep__detail">
+                                          <div class="title">
+                                                <div class="city">اصفهان</div>
+                                                <h3 class="fullName">محمدرضا عدالتخواه</h3>
+                                                <p>خمینی شهر اصغر آباد خ حجازی نرسیده به کوچه دوم</p>
+                                                <div class="more">
+                                                      اطلاعات بیشتر
+                                                      <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                            viewBox="0 0 24 24" width="24px" fill="#000000">
+                                                            <path d="M0 0h24v24H0z" fill="none" />
+                                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                                      </svg>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div> -->
+                        </div>
+                  </div>
+            </div>
+            <div id="map">
+                  <div id="mcontainer">
+                        <div class="rimage">
+                              <div class="rep__code">
+                                    نمایندگی کد 123
+                              </div>
+                        </div>
+                        <div class="rdetail">
+                              <div class="rep__detail">
+                                    <div class="title">
+                                          <div class="city">اصفهان</div>
+                                          <h3 class="fullName">محمدرضا عدالتخواه</h3>
+                                          <p>خمینی شهر اصغر آباد خ حجازی نرسیده به کوچه دوم</p>
+                                          <div class="more">
+                                                اطلاعات بیشتر
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                      viewBox="0 0 24 24" width="24px" fill="#000000">
+                                                      <path d="M0 0h24v24H0z" fill="none" />
+                                                      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                                </svg>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
+
+            <div class="modal-container">
+                  <div class="modal">
+                        <div class="top">
+                              <h2>استان های دارای نمایندگی خدمات دی‌سی‌ای <span class="counters">- <span
+                                                class="value">27</span> استان</span></h2>
+                              <div class="search">
+                                    <input type="search" name="citySearch" id="city-search"
+                                          placeholder="جستجو در نام استان ها">
+                              </div>
+                        </div>
+                        <div class="cities">
+
+                        </div>
+                  </div>
+            </div>
+      </section>
+
+</body>
+
+</html>

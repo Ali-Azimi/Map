@@ -1,0 +1,670 @@
+body {
+      margin: 0;
+      padding: 0;
+}
+
+#map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+}
+
+.mapboxgl-popup {
+      max-width: 200px;
+      z-index: 100;
+}
+
+.mapboxgl-popup-content {
+      text-align: center;
+      border-radius: 16px;
+      font-size: 16px;
+      box-shadow: #00000047 0px 8px 28px !important;
+      font-family: dana;
+}
+img.cover {
+      width: 100%;
+}
+
+div.image {
+      position: relative;
+      height: 20px;
+}
+
+div.image h3 {
+      position: absolute;
+      top: 1rem;
+      right: 0.5rem;
+      background-color: white;
+      padding: 4px 16px;
+      border-radius: 16px;
+      font-size: 16px;
+      margin: 0;
+}
+
+div.mapboxgl-popup-content {
+      padding: 0 !important;
+}
+
+div.info {
+      padding: 0 1rem 0.5rem;
+}
+
+div.popup-temp {
+      text-align: right;
+}
+
+div.info > div > span.title {
+      font-size: 14px;
+      font-weight: 300;
+}
+
+div.info > div {
+      padding: 8px 4px;
+      border-bottom: 1px solid #ddd;
+}
+
+div.info > div:last-child {
+      border-bottom: 0;
+}
+
+div.info i {
+      padding-left: 0.5rem;
+      color: #14a082;
+}
+
+div.info div.phone {
+      border-bottom: 0;
+      padding-bottom: 0;
+}
+
+.marker.mapboxgl-marker.mapboxgl-marker-anchor-center {
+      /* position: relative; */
+}
+/* 
+.marker.mapboxgl-marker.mapboxgl-marker-anchor-center::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #fff;
+      position: absolute;
+      top: 100%;
+} */
+
+/* .marker.mapboxgl-marker.mapboxgl-marker-anchor-center:hover {
+      box-shadow: 2px 2px 10px #555;
+} */
+
+body {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+    html {
+      height: -webkit-fill-available;
+    }
+
+section#all {
+      display: flex;
+      /* height: 100vh; */
+      overflow: hidden;
+      position: relative;
+}
+
+div#reps {
+      overflow-y: auto;
+}
+div#map {
+      flex: 5;
+      position: relative;
+}
+
+div#data {
+      flex: 3;
+      background: white;
+      overflow-y: auto;
+      /* position: relative; */
+      z-index: 2;
+}
+
+span {
+      display: inline-block;
+}
+
+div.container {
+      padding-right: 5%;
+      padding-left: 5%;
+      margin-top: 3rem;
+      /* height: calc(100% - 3rem); */
+      overflow-y: auto;
+}
+
+div.title h2 {
+      margin-top: 4px;
+}
+
+div.filters {
+      display: flex;
+      flex-wrap: wrap;
+}
+
+div.container > div.title,
+div.container > div.filters {
+      /* height: 85px; */
+}
+
+div.reps {
+      /* height: calc(100% - 170px - 3rem);
+      overflow-y: auto; */
+}
+
+div.filters span.filter-item,
+div.cities > span.filter-item {
+      border: 1px solid #b0b0b0;
+      border-radius: 4px;
+      margin: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+}
+
+span.filter-item.active {
+      background: #14a082;
+      color: white;
+}
+
+div.filters span.filter-item:hover,
+div.cities > span.filter-item:hover {
+      border-color: #222;
+}
+
+div.filters span.filter-item.others {
+      background: #f7f7f7;
+      border-color: #222;
+}
+
+div.current {
+      margin-top: 3rem;
+      font-weight: 700;
+      color: gray;
+}
+div.rep__code {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #14a082;
+      color: #14a082;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      padding: 1rem;
+      flex-basis: 100px;
+}
+
+div.rep__detail {
+      flex: 1;
+}
+
+.d-flex {
+      display: flex;
+}
+div.rep {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding-top: 2rem;
+      /* padding-bottom: 1rem; */
+      display: flex;
+      flex-direction: column;
+}
+
+div.rep div.title h3 {
+      margin-top: 2px;
+      margin-bottom: 4px;
+      font-size: 1rem;
+}
+
+div.rep p {
+      margin-top: 0;
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: 0;
+}
+
+div.more {
+      text-align: left;
+      color: #14a082;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+}
+
+div.more svg {
+      fill: #14a082;
+}
+
+div.marker svg path {
+      fill: #14a082 !important;
+}
+
+* {
+      box-sizing: border-box;
+}
+
+div.marker.active svg {
+      /* transform: scale(2); */
+      /* background: red; */
+      /* filter: hue-rotate(180deg); */
+      transition: 0.5s;
+}
+
+div.marker svg {
+      transition: 0.5s;
+}
+
+div.marker.active svg {
+      transform: scale(1.3);
+      z-index: 98;
+      animation: bala 0.3s infinite alternate;
+}
+
+div.marker.active {
+      z-index: 98;
+      text-shadow: 1px 1px 12px #14a082;
+}
+
+div.marker > div {
+      border: 3px solid transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      /* transition: .5s; */
+      text-shadow: 1px 1px 12px white;
+      color: #fd2f2f;
+}
+
+div.marker.active > div {
+      color: white !important;
+      background: red !important;
+      /* border: 3px solid #14a082; */
+      transform: scale(1.2);
+      transition: 0.5s;
+      animation: bala 0.5s infinite alternate;
+}
+
+div.marker.active > div::after {
+      background: red;
+}
+/* 
+div.marker.active svg path {
+      fill: red !important;
+
+} */
+
+@keyframes bala {
+      from {
+            transform: translateY(0);
+      }
+      to {
+            transform: translateY(-5px);
+      }
+}
+
+div.marker > div::after {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      background: #4da183;
+      position: absolute;
+      top: 100%;
+}
+
+div.modal-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      z-index: 103;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+}
+
+div.modal-container.show {
+      display: flex;
+}
+div.modal {
+      width: 70%;
+      height: 80%;
+      background: white;
+      padding: 1rem 2rem;
+}
+
+div.modal h2 {
+      font-size: 20px;
+}
+
+div.modal span.counters {
+      font-size: 16px;
+      font-weight: 400;
+}
+
+div.modal div.top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+}
+
+div.modal input {
+      border-color: #ddd !important;
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid;
+      border-radius: 4px;
+      outline: none;
+}
+
+div.call > a,
+div.waze, div.map {
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #14a082;
+      flex: 1;
+      text-decoration: none;
+      text-align: center;
+}
+
+div.ctas {
+      display: flex;
+      margin-top: 4px;
+}
+
+div.ctas > div svg {
+      fill: #14a082;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #14a082;
+      border-radius: 50%;
+      padding: 4px;
+      margin-bottom: 4px;
+}
+
+div.ctas > div {
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      cursor: pointer;
+}
+
+div.ctas > div:hover {
+      background: #eee;
+}
+
+div.call {
+      /* border-left: 1px solid #ddd; */
+      flex: 1;
+      cursor: pointer;
+}
+
+div.waze {
+      /* border-right: 1px solid #ddd; */
+      cursor: pointer;
+}
+
+div.mile {
+      display: none;
+}
+
+
+div#map-icon {
+      opacity: 0;
+      position: fixed;
+      bottom: -7rem;
+      transition: .5s;
+}
+
+
+.mapboxgl-popup div.ctas > div {
+      padding: 4px;
+}
+
+#mcontainer {
+      display: none;
+}
+
+/* #mcontainer.show {
+      display: block;
+} */
+
+@media screen and (max-width: 768px) {
+
+
+      div.map {
+            display: inline-flex;
+      }
+      div#map-icon.show {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            opacity: 1;
+            transform: translateX(-50%);
+            display: flex;
+            background: black;
+            color: white;
+            align-items: center;
+            padding: 4px 1rem;
+            border-radius: 8px;
+            transition: .5s;
+      }
+
+      div.modal {
+            width: 90%;
+      }
+
+      div#data.after {
+            flex: 1;
+            flex-basis: 0 !important;
+      }
+
+      div.modal div.top {
+            flex-direction: column;
+      }
+
+      div.modal {
+            overflow: scroll;
+      }
+
+      div#map-icon.show svg {
+            fill: white;
+            width: 32px;
+            height: 32px;
+      }
+
+      section#all {
+            flex-direction: column-reverse;
+      }
+
+      div#data {
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+      }
+
+      div#data {
+            /* position: relative; */
+      }
+      div.mile {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            background: #eee;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+      }
+
+      div.mile svg {
+            width: 28px;
+            height: 28px;
+      }
+
+      div.container {
+            margin-top: 1rem;
+            padding-bottom: 4rem;
+      }
+
+      div#data.mobile {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           z-index: 102;
+           height: 100%;
+           transition: .5s;
+      }
+
+      div#map {
+            flex: 1 !important;
+      }
+
+      div#data {
+            position: absolute;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    transition: .5s;
+      }
+
+      div#footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* height: 160px; */
+            background: white;
+            z-index: 99;
+            display: block !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .5rem 1rem;
+      }
+      
+
+      div#footer h2 {
+            margin: 0;
+            font-size: 1.1rem;
+      }
+
+      div.title h2, div.top h2 {
+            font-size: 1.1rem !important;
+      }
+
+      span.filter-item {
+            font-size: 14px;
+      }
+
+
+      div#mcontainer {
+            width: 90%;
+            /* height: 120px; */
+            background: white;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            background: white;
+            transform: translateX(-50%);
+            z-index: 100;
+            box-shadow: 1px 1px 10px gray;
+            padding: .5rem;
+            /* display: flex; */
+            font-family: dana;
+            border-radius: 8px;
+
+      }
+
+      div#mcontainer.show {
+            display: flex !important;
+      }
+
+      .rdetail h2 , .rdetail p, .rdetail h3 {
+            margin: 0;
+      }
+
+      .mapboxgl-popup {
+            display: none !important;
+      }
+      
+
+}
+
+
+div.address , div.person {
+      display: flex;
+      /* align-items: center; */
+}
+
+div#footer {
+      display: none;
+      height: 70px;
+}
+
+
+a:active, a:focus {
+      outline: none;
+}
+
+
+div.cloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      &.show {
+          display: flex;
+      }
+  }
+
+  .lo {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      background: white;
+  }
+  
+  .lo::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient( 90deg, rgba(0, 255, 255, 0) 0, rgba(20, 160, 130, 0.2) 20%, rgba(20, 160, 130, 0.5) 60%, rgba(255, 255, 255, 0));
+      animation: shimmer 1s infinite;
+      content: "";
+  }
+  
+  @keyframes shimmer {
+      100% {
+          transform: translateX(100%);
+      }
+  }
+  
